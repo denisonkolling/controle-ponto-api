@@ -1,6 +1,7 @@
 package com.example.controlepontoapi.model;
 
 import com.example.controlepontoapi.dto.EmployeeRequestDTO;
+import com.example.controlepontoapi.dto.RegisterDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,5 +34,9 @@ public class Employee {
         this.name = createEmployeeDTO.name();
         this.position = createEmployeeDTO.position();
         this.salary = createEmployeeDTO.salary();
+    }
+
+    public List<RegisterDTO> getRecordsAsObject() {
+        return this.registers.stream().map(RegisterDTO::new).toList();
     }
 }
