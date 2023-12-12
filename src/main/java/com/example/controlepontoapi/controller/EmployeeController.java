@@ -3,7 +3,6 @@ package com.example.controlepontoapi.controller;
 import com.example.controlepontoapi.dto.EmployeeRegistersResponseDTO;
 import com.example.controlepontoapi.dto.EmployeeRequestDTO;
 import com.example.controlepontoapi.dto.EmployeeResponseDTO;
-import com.example.controlepontoapi.model.Employee;
 import com.example.controlepontoapi.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +22,8 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @PostMapping
-    public ResponseEntity<EmployeeResponseDTO> create(@RequestBody @Valid EmployeeRequestDTO request) {
-        EmployeeResponseDTO response = this.employeeService.create(request);
+    public ResponseEntity<EmployeeResponseDTO> createEmployee(@RequestBody @Valid EmployeeRequestDTO request) {
+        EmployeeResponseDTO response = this.employeeService.createEmployee(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 

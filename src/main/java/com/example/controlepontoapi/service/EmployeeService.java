@@ -17,7 +17,7 @@ public class EmployeeService {
     @Autowired
     EmployeeRepository employeeRepository;
 
-    public EmployeeResponseDTO create(EmployeeRequestDTO request) {
+    public EmployeeResponseDTO createEmployee(EmployeeRequestDTO request) {
         Employee newEmployee = this.employeeRepository.save(new Employee(request));
         return new EmployeeResponseDTO(newEmployee);
     }
