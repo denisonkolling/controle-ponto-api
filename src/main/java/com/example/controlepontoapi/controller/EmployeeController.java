@@ -1,8 +1,6 @@
 package com.example.controlepontoapi.controller;
 
-import com.example.controlepontoapi.dto.EmployeeRegistersResponseDTO;
-import com.example.controlepontoapi.dto.EmployeeRequestDTO;
-import com.example.controlepontoapi.dto.EmployeeResponseDTO;
+import com.example.controlepontoapi.dto.*;
 import com.example.controlepontoapi.service.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +36,13 @@ public class EmployeeController {
         EmployeeRegistersResponseDTO response = this.employeeService.getEmployee(id);
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/{id}/records")
+    public ResponseEntity<RegisterResponseDTO> createRegister(@PathVariable("id") Long id, @RequestBody @Valid RegisterRequestDTO request) {
+        RegisterResponseDTO response = this.employeeService.createRegister(id, request);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+
 
 }
